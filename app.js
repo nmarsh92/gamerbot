@@ -47,9 +47,17 @@ try {
   console.error('not run this file (`app.js`), but it will do exactly the same thing.');
   console.error('(It even uses your app directory\'s local Sails install, if possible.)');
   return;
-}//-•
+} //-•
 
 
 // Start server
-sails.lift(rc('sails'));
-DiscordService.register();
+sails.lift(rc('sails'), function (err) {
+  if (err) {
+    console.log('Error occurred lifting Sails app:', err);
+    return;
+  }
+
+  // --•
+  console.log('Sails app lifted successfully!');
+  DiscordService.register();
+});
