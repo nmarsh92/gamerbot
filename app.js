@@ -49,15 +49,8 @@ try {
   return;
 } //-•
 
-
-// Start server
-sails.lift(rc('sails'), function (err) {
-  if (err) {
-    console.log('Error occurred lifting Sails app:', err);
-    return;
-  }
-
-  // --•
-  console.log('Sails app lifted successfully!');
+sails.on('ready', function() {
   DiscordService.register();
 });
+// Start server
+sails.lift(rc('sails'));
