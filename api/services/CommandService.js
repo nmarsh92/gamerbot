@@ -18,7 +18,7 @@ module.exports =  {
             var command = args[0].substr(1);
             args.shift();
 
-            if(self.commands[command]){
+            if(self.commands[command] && self.commands[command].enabled) {
                 self.commands[command].fn(message, args);
             }
           
