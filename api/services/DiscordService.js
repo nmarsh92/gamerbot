@@ -8,5 +8,10 @@ module.exports = {
     });
     
     client.login(TokenService.discord);
+  },
+  reply: function(message, reply){
+    message.reply(reply)
+                .then(sent => console.log(`Sent a reply to ${sent.author.username}`))
+                .catch(console.error);
   }
 }
