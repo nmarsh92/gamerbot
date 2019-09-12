@@ -3,6 +3,9 @@ const client = new Discord.Client();
 module.exports = {
   client: client,
   register: function () {
+    client.on('ready', data => {
+      console.log(client.channels);
+    });
     client.on('message', msg => {
       CommandService.execute(msg);
     });

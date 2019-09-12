@@ -51,6 +51,7 @@ try {
 
 sails.on('ready', function() {
   DiscordService.register();
+  TwitterService.register();
 });
 // Start server
 sails.lift(rc('sails'));
