@@ -38,6 +38,78 @@ let commandService = {
         return "Josh's favorite game ever."
       }
     },
+    add:{
+      enabled: true,
+      timeout: 0,
+      adminOnly: false,
+      args:['<numbers>'],
+      description: "Add numbers together.",
+      fn: async function(args){
+        var value = 0;
+        if(args && args.length > 0){
+          args.forEach(function(arg){
+            if(!isNaN(arg)){
+              value += parseFloat(arg);
+            }
+          });
+        }
+
+        return value;
+      }
+    },
+    subtract:{
+      enabled: true,
+      timeout: 0,
+      adminOnly: false,
+      args:['<numbers>'],
+      description: "Subtract numbers together.",
+      fn: async function(args){
+        var value = 0;
+        if(args && args.length > 0){
+          value = args[0];
+          args.forEach(function(arg){
+            if(!isNaN(arg)){
+              value -= parseFloat(arg);
+            }
+          });
+        }
+
+        return value;
+      }
+    },
+    multiply: {
+      enabled: true,
+      timeout: 0,
+      adminOnly: false,
+      args:['<numbers>'],
+      description: "Multiply numbers together.",
+      fn: async function(args){
+        var value = 1;
+        if(args && args.length > 0){
+          args.forEach(function(arg){
+            if(!isNaN(arg)){
+              value *= parseFloat(arg);
+            }
+          });
+        }
+
+        return value;
+      }
+    },
+    divide: {
+      enabled: true,
+      timeout: 0,
+      adminOnly: false,
+      args:['<dividend>', '<divisor>'],
+      description: "Divide a number.",
+      fn: async function(args){
+        if(args && args.length === 2 && !isNaN(args[0]) && !isNaN(args[1])){
+          return parseFloat(args[0]) / parseFloat(args[1]);
+        } else {
+         return commandService.commands.help.fn(['divide']);
+        }
+      }
+    },
     help: {
       enabled: true,
       timeout: 0,

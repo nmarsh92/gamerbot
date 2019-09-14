@@ -27,7 +27,7 @@ module.exports = {
   reply: function (message, reply) {
     if (reply) {
       message.reply(reply)
-        .then(sent => console.log(`Sent a reply to ${sent.author.username}`))
+        .then(sent => console.log(`Sent a reply to ${message.author.username}`))
         .catch(console.error);
     }
   },
