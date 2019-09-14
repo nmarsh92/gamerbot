@@ -47,7 +47,7 @@ let commandService = {
       example: '!help <command_name>',
       fn: async function (args) {
         let response = "```css\n";
-        if (args && args[0] && commandService.commands[args[0]]) {
+        if (args && args[0] && commandService.commands[args[0]] && commandService.commands[args[0]].enabled) {
           let command = commandService.commands[args[0]];
           response += args[0] + ' - ' + command.description;
           if (command.args && command.args.length > 0) {
