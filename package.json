@@ -9,7 +9,7 @@
     "@sailshq/lodash": "^3.10.3",
     "@sailshq/socket.io-redis": "^5.2.0",
     "discord.js": "^11.5.1",
-    "grunt": "1.0.4",
+    "grunt": "1.5.3",
     "pm2": "^3.5.1",
     "request": "^2.88.0",
     "sails": "^1.2.3",
